@@ -16,6 +16,20 @@ public:
 		return head;
 	}
 
+	void afisare() {
+
+
+		Node<int>* aux = head;
+
+		while (aux != NULL)
+		{
+
+			cout << aux->getData() << " ";
+			aux = aux->getNext();
+		}
+
+	}
+
 	void addStart(T data) {
 
 		if (head == NULL) {
@@ -154,6 +168,132 @@ public:
 
 
 		return ct;
+	}
+
+	int mediaAritmetica(int dim) {
+
+		Node<T>* aux = head;
+
+		int s = 0;
+
+		for (int i = 0; i < dim; i++) {
+			s += aux->getData();
+			aux = aux->getNext();
+		}
+
+		return s / dim;
+	}
+
+	int ctMaiMareMedia(int dim) {
+
+		Node<T>* aux = head;
+
+		int media = mediaAritmetica(dim);
+		int ct = 0;
+
+		for (int i = 0; i < dim; i++) {
+			if (aux->getData() > media) ct++;
+			aux = aux->getNext();
+		}
+
+		return ct;
+	}
+
+	int ctPerechiCifZeci(int dim) {
+
+		Node<T>* aux = head;
+
+		int ct = 0;
+
+		for (int i = 0; i < dim; i++) {
+			Node<T>* nou = head;
+			int ct1 = 0;
+			while (ct1 < i - 1)
+			{
+				ct1++;
+				nou = nou->getNext();
+			}
+
+			for (int j = i; j < dim; j++) {
+				if (aux->getData() / 10 % 10 == nou->getData() / 10 % 10)
+					ct++;
+				nou = nou->getNext();
+			}
+			aux = aux->getNext();
+		}
+
+		return ct / 2;
+	}
+
+	int sumaCif(int nr) {
+
+		int s = 0;
+
+		while (nr != 0)
+		{
+			int c = nr % 10;
+			s += c;
+			nr /= 10;
+		}
+
+		return s;
+	}
+
+	int ctPerechiSumEgal(int dim) {
+
+		Node* aux = head;
+		Node* nou = head;
+		int ct = 0;
+
+		for (int i = 0; i < dim; i++) {
+			nou = head;
+			nextI(i + 1, nou);
+
+			for (int j = 0; j < dim; j++) {
+
+				if ((nou->getData() != aux->getData()) && (sumaCif(nou->getData()) == sumaCif(aux->getData()))) {
+					ct++;
+				}
+
+				if (nou->getNext() == NULL) {
+					j = dim;
+					break;
+				}
+				nou = nou->getNext();
+			}
+
+			aux = aux->getNext();
+		}
+
+		return ct / 2;
+
+
+	}
+
+	void addPrime(int dim, List list) {
+
+
+		for (int i = 0; i < dim; i++) {
+
+			if (prim(list.head->getData())) {
+				addStart(list.head->getData());
+			}
+
+			list.head = list.head->getNext();
+		}
+
+	}
+
+	void addRestulImp(int dim, List list) {
+
+		for (int i = 0; i < dim; i++) {
+			int nr = list.head->getData();
+			int sumacif = sumaCif(list.head->getData());
+			addEnd(nr % sumacif);
+
+			list.head = list.head->getNext();
+		}
+
 	}
 
 };
