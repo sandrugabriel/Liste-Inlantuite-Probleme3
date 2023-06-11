@@ -241,8 +241,8 @@ public:
 
 	int ctPerechiSumEgal(int dim) {
 
-		Node* aux = head;
-		Node* nou = head;
+		Node<T>* aux = head;
+		Node<T>* nou = head;
 		int ct = 0;
 
 		for (int i = 0; i < dim; i++) {
@@ -268,6 +268,18 @@ public:
 		return ct / 2;
 
 
+	}
+
+	bool prim(int nr) {
+
+		if (nr == 0 || nr == 1)
+			return false;
+
+		for (int i = 2; i <= nr / 2; i++)
+			if (nr % i == 0)
+				return false;
+
+		return true;
 	}
 
 	void addPrime(int dim, List list) {
@@ -296,4 +308,178 @@ public:
 
 	}
 
+	int maxi(int dim) {
+		Node<T>* aux = head;
+		int maxi = -1;
+
+		for (int i = 0; i < dim; i++) {
+
+			if (aux->getData() > maxi)
+				maxi = aux->getData();
+
+			aux = aux->getNext();
+		}
+
+		return maxi;
+	}
+
+	int mini(int dim) {
+		Node<T>* aux = head;
+		int mini = 99999;
+
+		for (int i = 0; i < dim; i++) {
+
+			if (aux->getData() < mini)
+				mini = aux->getData();
+
+			aux = aux->getNext();
+		}
+
+		return mini;
+	}
+
+	int mediaAritNenule(int dim) {
+
+		Node<T>* aux = head;
+
+		int s = 0;
+		int ct = 0;
+
+		for (int i = 0; i < dim; i++) {
+			if (aux->getData() != 0) {
+				ct++;
+				s += aux->getData();
+			}
+
+			aux = aux->getNext();
+		}
+
+
+		return s / ct;
+	}
+
+	int getUltimulNr(int dim) {
+
+		Node<T>* aux = head;
+
+		for (int i = 0; i < dim - 1; i++)
+			aux = aux->getNext();
+
+		return aux->getData();
+	}
+
+	int ctIntervalAfara(int dim) {
+
+		Node<T>* aux = head;
+
+		int ct = 0;
+		int ultim = getUltimulNr(dim);
+		int primul = aux->getData();
+		for (int i = 0; i < dim; i++) {
+			if (aux->getData() < primul && aux->getData() > ultim)
+				ct++;
+
+			aux = aux->getNext();
+		}
+
+		return ct;
+	}
+
+	void setPoz(int poz, int nr) {
+		Node<T>* aux = head;
+		int ct = 0;
+		while (ct < poz)
+		{
+			aux = aux->getNext();
+			ct++;
+		}
+
+		aux->setData(nr);
+
+
+	}
+
+	void InlocNule(int dim) {
+
+		Node<T>* aux = head;
+
+		for (int i = 0; i < dim; i++) {
+
+			if (aux->getData() == 0) {
+				setPoz(i, mediaAritNenule(dim));
+			}
+
+			aux = aux->getNext();
+		}
+
+	}
+
+	int divizorComun(int n, int m) {
+
+		while (m != 0)
+		{
+			int r = n % m;
+			n = m;
+			m = r;
+		}
+
+		return n;
+	}
+
+	int ctPerechiPrime(int dim) {
+
+		Node<T>* aux = head;
+
+		int ct = 0;
+
+		for (int i = 0; i < dim; i++) {
+			int n, m;
+			n = aux->getData();
+			Node<T>* nou = head;
+			for (int j = 0; j < dim; j++) {
+				m = nou->getData();
+				if (divizorComun(n, m) == 1) ct++;
+				nou = nou->getNext();
+			}
+
+			aux = aux->getNext();
+		}
+
+		return ct / 2;
+	}
+
+	int ctPerechiPrimeUltim(int dim) {
+
+		Node<T>* aux = head;
+
+		int ct = 0;
+
+		for (int i = 0; i < dim; i++) {
+			int n, m;
+			n = aux->getData();
+			m = getUltimulNr(dim);
+			if (divizorComun(n, m) == 1) ct++;
+
+			aux = aux->getNext();
+		}
+
+		return ct;
+
+	}
+
+	int ctCifra(int dim, int nr) {
+
+		Node<T>* aux = head;
+
+		int ct = 0;
+
+		for (int i = 0; i < dim; i++) {
+			if (aux->getData() == nr)
+				ct++;
+
+			aux = aux->getNext();
+		}
+
+		return ct;
+	}
 };

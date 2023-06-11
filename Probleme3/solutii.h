@@ -95,6 +95,90 @@ void solutia5() {
 	y.afisare();
 }
 
+/*#986
+Se dă un șir cu n elemente, numere reale. Să se determine câte dintre elemente se află în afara intervalului închis
+determinat de primul și ultimul element.
+Ex:
+6
+2 0 4 -1 -8 -3 se afiseaza 2
+*/
+void solutia6() {
+
+	int dim = 6;
+	int v[100] = { 2, 0, 4, -1, -8, -3 };
+	for (int i = 0; i < dim; i++)
+		list.addEnd(v[i]);
+
+	cout << list.ctIntervalAfara(dim);
+}
+
+/*#498
+Se dă un vector cu n numere naturale. Să se determine câte dintre perechile de elemente din vector sunt prime între ele.
+Ex:
+6
+51 18 15 28 77 121 se afiseaza 9
+*/
+void solutia7() {
+
+	int dim = 6;
+	int v[100] = { 51, 18, 15, 28, 77, 121 };
+	for (int i = 0; i < dim; i++)
+		list.addEnd(v[i]);
+
+	cout << list.ctPerechiPrime(dim);
+
+}
+
+/*#496
+Se dă un vector cu n numere naturale. Să se determine câte dintre elementele vectorului sunt prime cu ultimul element.
+Ex:
+6
+50 64 15 28 35 75 se afiseaza 2
+*/
+void solutia8() {
+
+	int dim = 6;
+	int v[100] = { 50, 64, 15, 28, 35, 75 };
+	for (int i = 0; i < dim; i++)
+		list.addEnd(v[i]);
+
+	cout << list.ctPerechiPrimeUltim(dim);
+}
+
+/*#161
+* Se dă un vector cu n elemente, numere naturale. Să se înlocuiască toate elementele nule din vector cu partea întreagă
+a mediei aritmetice a elementelor nenule din vector.
+Ex:
+5
+0 2 0 4 5
+se afiseaza 3 2 3 4 5
+*/
+void solutia9() {
+
+	int dim = 5;
+	int v[100] = { 0, 2, 0 ,4 ,5 };
+	for (int i = 0; i < dim; i++)
+		list.addEnd(v[i]);
+
+	list.InlocNule(dim);
+	list.afisare();
+}
+
+/*#98
+Se dă un șir cu n elemente numere naturale. Să se determine valoarea maximă din șir și de câte ori apare.
+Ex:
+5
+5 3 2 4 5 se afiseaza 5 2
+*/
+void solutia10() {
+
+	int dim = 5;
+	int v[100] = { 5, 3 ,2, 4 ,5 };
+	for (int i = 0; i < dim; i++)
+		list.addEnd(v[i]);
+
+	cout << list.maxi(dim) << " " << list.ctCifra(dim, list.maxi(dim));
+}
 
 
 
