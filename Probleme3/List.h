@@ -482,4 +482,170 @@ public:
 
 		return ct;
 	}
+
+	int getPoz(int poz) {
+
+		Node<T>* aux = head;
+
+		int ct = 0;
+
+		while (ct < poz)
+		{
+			aux = aux->getNext();
+			ct++;
+		}
+
+		return aux->getData();
+	}
+
+	void crescator(int dim) {
+
+		Node<T>* head1 = head;
+
+		int semn = 1;
+
+		do {
+			semn = 1;
+			head1 = head;
+			for (int i = 0; i < dim - 1; i++) {
+
+				if (head1->getData() > head1->getNext()->getData()) {
+
+					int aux = getPoz(i);
+					setPoz(i, getPoz(i + 1));
+					setPoz(i + 1, aux);
+					semn = 0;
+				}
+
+				head1 = head1->getNext();
+			}
+
+		} while (semn == 0);
+
+
+
+	}
+
+	int ctEgalUiltim(int dim) {
+
+		Node<T>* aux = head;
+
+		int ct = 0;
+
+		for (int i = 0; i < dim; i++) {
+			if (aux->getData() == getUltimulNr(dim))
+				ct++;
+
+			aux = aux->getNext();
+		}
+
+		return ct;
+
+	}
+
+	int ctNrPrime(int dim) {
+
+		Node<T>* aux = head;
+
+		int ct = 0;
+
+		for (int i = 0; i < dim; i++) {
+			if (prim(aux->getData()))
+				ct++;
+
+			aux = aux->getNext();
+		}
+
+		return ct;
+
+
+	}
+
+	int ctNr(int nr) {
+		int ct = 0;
+		while (nr != 0)
+		{
+			ct++;
+			nr /= 10;
+		}
+		return ct;
+	}
+
+	bool verifPatratPerfect(int nr) {
+
+		int ctnr = ctNr(nr);
+		if (ctnr > 2) {
+			nr = nr / pow(10, ctnr - 2);
+		}
+
+		if (sqrt(nr) == (int)sqrt(nr))
+			return true;
+
+		return false;
+	}
+
+	void afisarePatratPerf(int dim) {
+
+		Node<T>* aux = head;
+
+		int ct = 0;
+
+		for (int i = 0; i < dim; i++) {
+			if (verifPatratPerfect(aux->getData()))
+				cout << aux->getData() << " ";
+
+
+			aux = aux->getNext();
+		}
+
+
+	}
+
+	void afisareSumele(int dim) {
+
+		int ct = dim;
+		while (ct >= 1)
+		{
+
+			Node<T>* aux = head;
+			int s = 0;
+			for (int i = 0; i < ct; i++) {
+
+				s += aux->getData();
+				aux = aux->getNext();
+			}
+			cout << s << endl;
+
+			ct--;
+		}
+
+
+
+
+	}
+
+	int primulNr() {
+
+		return head->getData();
+	}
+
+	int pozPrimaCif(int dim, int nr) {
+
+		Node<T>* aux = head;
+
+		int poz = 0;
+
+		for (int i = 0; i < dim; i++) {
+			if (aux->getData() == nr)
+				poz = i + 1;
+
+
+
+			aux = aux->getNext();
+		}
+
+		return poz;
+	}
+
+
 };

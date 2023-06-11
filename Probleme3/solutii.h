@@ -180,6 +180,98 @@ void solutia10() {
 	cout << list.maxi(dim) << " " << list.ctCifra(dim, list.maxi(dim));
 }
 
+/*#99
+Se dă un șir cu n elemente numere naturale. Să se determine câte elemente din şir sunt egale cu ultimul element al acestuia.
+Ex:5
+5 3 2 4 5
+se afiseaza 2
+*/
+void solutia11() {
+
+	int dim = 5;
+	int v[100] = { 5, 3 ,2, 4 ,5 };
+	for (int i = 0; i < dim; i++)
+		list.addEnd(v[i]);
+
+	cout << list.ctEgalUiltim(dim);
+}
+
+/*#100
+Se dă un șir cu n elemente numere naturale. Să se determine câte elemente din şir sunt numere prime.
+Ex:
+5
+25 17 2 10 13
+se afiseaza 3
+*/
+void solutia12() {
+
+	int dim = 5;
+	int v[100] = { 25, 17, 2, 10, 13 };
+	for (int i = 0; i < dim; i++)
+		list.addEnd(v[i]);
+
+	cout << list.ctNrPrime(dim);
+}
+
+/*#132
+Să se afișeze elementele din șir care au proprietatea că primele două cifre din scrierea zecimală formează un pătrat perfect.
+Ex:
+5
+253 16 225 100 3678
+se afiseaza 253 16 3678
+*/
+void solutia13() {
+
+	int dim = 5;
+	int v[100] = { 253, 16, 225 ,100, 3678 };
+	for (int i = 0; i < dim; i++)
+		list.addEnd(v[i]);
+
+	list.afisarePatratPerf(dim);
+}
+
+/*#237
+Se dă un şir cu n numere naturale. Să se afişeze suma primilor n termeni din şir, apoi suma
+primilor n-1 termeni din şir, şi aşa mai departe.
+Ex:
+4
+1 7 3 4
+se afiseaza
+15
+11
+8
+1
+*/
+void solutia14() {
+
+	int dim = 4;
+	int v[100] = { 1, 7, 3, 4 };
+	for (int i = 0; i < dim; i++)
+		list.addEnd(v[i]);
+
+	list.afisareSumele(dim);
+
+}
+
+/*#248
+Se dă un şir cu n numere naturale distincte două câte două. Să se determine poziţia pe care s-ar afla
+primul element al şirului în şirul sortat.
+Ex:
+6
+267 13 45 628 7 79
+se afiseaza 5
+*/
+void solutia15() {
+
+	int dim = 6;
+	int v[100] = { 267, 13, 45, 628, 7, 79 };
+	for (int i = 0; i < dim; i++)
+		list.addEnd(v[i]);
+
+	int nr = list.primulNr();
+	list.crescator(dim);
+	cout << list.pozPrimaCif(dim, nr);
+}
 
 
 
