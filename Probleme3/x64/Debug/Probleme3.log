@@ -1,2 +1,7 @@
 ﻿  Probleme3.cpp
+C:\Mycode\C++\Structuri de date\Probleme_PbInfo\Probleme3\Probleme3\List.h(578,12): warning C4244: '=': conversion from 'double' to 'int', possible loss of data
+C:\Mycode\C++\Structuri de date\Probleme_PbInfo\Probleme3\Probleme3\List.h(574,7): message : while compiling class template member function 'bool List<int>::verifPatratPerfect(int)'
+C:\Mycode\C++\Structuri de date\Probleme_PbInfo\Probleme3\Probleme3\List.h(594,4): message : see the first reference to 'List<int>::verifPatratPerfect' in 'List<int>::afisarePatratPerf'
+C:\Mycode\C++\Structuri de date\Probleme_PbInfo\Probleme3\Probleme3\solutii.h(230,24): message : see the first reference to 'List<int>::afisarePatratPerf' in 'solutia13'
+C:\Mycode\C++\Structuri de date\Probleme_PbInfo\Probleme3\Probleme3\solutii.h(5,11): message : see reference to class template instantiation 'List<int>' being compiled
   Probleme3.vcxproj -> C:\Mycode\C++\Structuri de date\Probleme_PbInfo\Probleme3\x64\Debug\Probleme3.exe
