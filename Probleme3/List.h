@@ -647,5 +647,158 @@ public:
 		return poz;
 	}
 
+	int factorial(int n) {
+		int fact = 1;
+
+		for (int i = 1; i <= n; i++)
+			fact *= i;
+
+		return fact;
+	}
+
+	void afisareFactorial(int dim) {
+
+		Node<T>* aux = head;
+
+		int fact = factorial(dim);
+
+		for (int i = 0; i < dim; i++) {
+			if (fact % aux->getData() == 0)
+				cout << aux->getData() << " ";
+
+
+
+			aux = aux->getNext();
+		}
+
+	}
+
+	bool palindrom(int nr) {
+		int a = nr;
+		int t = 0;
+		while (nr != 0)
+		{
+			int c = nr % 10;
+			t = t * 10 + c;
+			nr = nr / 10;
+		}
+
+		if (a == t) return true;
+
+		return false;
+	}
+
+	void afisarePelindrom(int dim) {
+
+		Node<T>* aux = head;
+		int ct = 0, ct1 = 0;
+		for (int i = 0; i <= dim / 2; i++) {
+			if (ct % 2 == 0) {
+				if (palindrom(aux->getData())) {
+
+					cout << aux->getData() << " ";
+					ct++;
+					aux = aux->getNext();
+				}
+			}
+			else {
+				ct1++;
+				for (int j = 0; j < ct1; j++) {
+					Node<T>* nou1 = head;
+					int n = 0;
+					while (n < dim - ct1)
+					{
+						nou1 = nou1->getNext();
+						n++;
+					}
+					if (palindrom(nou1->getData())) {
+						cout << nou1->getData() << " ";
+						j = dim + 1;
+						ct++;
+						aux = aux->getNext();
+					}
+					ct1++;
+				}
+
+			}
+
+
+		}
+
+
+
+
+	}
+
+	int ctPerechiUnu(int dim) {
+
+		Node<T>* aux = head;
+
+		int ct = 0;
+
+		for (int i = 0; i < dim; i++) {
+			if (aux->getData() == 1) {
+				Node<T>* nou = head;
+				int n = 0;
+				while (n < i + 1)
+				{
+					nou = nou->getNext();
+					n++;
+				}
+				for (int j = i + 1; j < dim; j++) {
+					if (aux->getData() == nou->getData() == 1)
+						ct++;
+					nou = nou->getNext();
+				}
+
+			}
+
+			aux = aux->getNext();
+		}
+
+		return ct;
+	}
+
+	int generareNrDiferit(int dim) {
+
+		Node<T>* aux = head;
+
+		bool gasit = false;
+		int numar_cautat;
+
+		while (!gasit) {
+			numar_cautat = rand() % 900000000 + 100000000;
+
+			for (int i = 0; i < dim; i++) {
+				if (aux->getData() == numar_cautat) {
+					gasit = false;
+					break;
+				}
+				else {
+					gasit = true;
+				}
+				aux = aux->getNext();
+			}
+		}
+
+
+		return numar_cautat;
+	}
+
+	int sumaPuteri(int dim, List list) {
+
+		Node<T>* aux = head;
+		int s = 0;
+		for (int i = 0; i < dim; i++) {
+			s += pow(list.head->getData(), aux->getData());
+
+			aux = aux->getNext();
+			list.head = list.head->getNext();
+		}
+
+		return s;
+	}
+
+
 
 };
