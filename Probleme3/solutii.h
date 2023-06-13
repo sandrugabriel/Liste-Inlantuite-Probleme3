@@ -273,6 +273,111 @@ void solutia15() {
 	cout << list.pozPrimaCif(dim, nr);
 }
 
+/*#1550
+Se da un vector cu n elemente. Sa se afișeze pe ecran elementele din vector care divid factorialul numărului de elemente n.
+Ex:
+5
+16 3 71 30 25
+se afiseaza 3 30
+*/
+void solutia16() {
+
+	int dim = 5;
+	int v[100] = { 16, 3, 71, 30, 25 };
+	for (int i = 0; i < dim; i++)
+		list.addEnd(v[i]);
+
+	list.afisareFactorial(dim);
+}
+
+/*#2375
+  Să se afișeze numerele palindrom din fișier în ordinea primul, ultimul, al doilea, penultimul etc.
+Ex:
+8
+11 21 303 4114 51 66 75 808
+se afiseaza 11 808 303 66 4114   */
+void solutia17() {
+
+	int dim = 8;
+	int v[100] = { 11, 21, 303, 4114 ,51, 66, 75, 808 };
+	for (int i = 0; i < dim; i++)
+		list.addEnd(v[i]);
+
+	list.afisarePelindrom(dim);
+}
+
+/*#2322
+Într-un ținut îndepărtat cu peisaje de poveste pacea domnește peste întreg ținutul deoarece lumea are absolut tot ce îi trebuie.
+Moș Crăciun însa dorește să le mai aducă zâmbetul pe buze și de aceea a decis să ducă fiecărei case câte o sticlă de șampanie
+deoarece deși oamenii de aici au bani, nu au magazine de unde să cumpere. Însă din păcate Moș Crăciun este bătrân și nu
+poate transporta prea multe sticle așa că decide să distribuie câte o sticla de șampanie la fiecare două case. Pentru
+simplitate Moș Crăciun a făcut o hartă a caselor în care o casă este notată cu 1 și pământul gol cu 0. Moș Crăciun însă
+nu prea le are cu programarea și de aceea vă roagă să îl ajutați!
+Scrieți un program care primind harta caselor afișează câte sticle de șampanie trebuie să aducă Moș Crăciun.
+Ex:
+7
+1 0 0 1 0 1 1
+se afiseaza 6
+*/
+void solutia18() {
+
+	int dim = 7;
+	int v[100] = { 1, 0, 0, 1 ,0, 1, 1 };
+	for (int i = 0; i < dim; i++)
+		list.addEnd(v[i]);
+
+	cout << list.ctPerechiUnu(dim);
+}
+
+/*#2404
+Exact așa cum spuneam Alex e un băiat năzdrăvan! De data aceasta boacăna pe care a făcut-o l-a determinat pe
+profesorul de informatică să îi spună că nu va mai fi iertat și pentru această boacănă așa că îi dă de ales ori
+îl va asculta doar pe el și restul copiilor vor scăpa ori va dă test tuturor din clasă. Alex este conștient că
+nu trebuie să fie pedepsiți toți pentru greșeala lui așa ca decide ca doar el trebuie să răspundă! Profesorul
+complet degajat îi da problema:
+Se dau două șiruri de câte n valori notate A și B. Pentru fiecare pereche AiBi
+ se calculează resturile împărțirii la 6669666 a lui AiBi
+. Ajutați-l pe Alex să determine suma acestor resturi.
+Ex:
+5
+2 3 4 5 6
+1 2 3 4 5
+se afiseaza 8476
+*/
+void solutia19() {
+
+	int dim = 5;
+	int v[100] = { 2, 3, 4, 5 ,6 };
+	for (int i = 0; i < dim; i++)
+		list.addEnd(v[i]);
+
+	List<int> list2;
+	int v2[100] = { 1,2,3,4,5 };
+	for (int i = 0; i < dim; i++)
+		list2.addEnd(v2[i]);
+
+	cout << list2.sumaPuteri(dim, list);
+}
+
+/*#
+Moş Crăciun s-a dus la Polul Nord Shopping City să cumpere n cadouri pentru copiii din întreaga lume.
+Fiecare cadou avea un cod de bare pentru identificarea produsului, corespunzător unui număr format din nouă cifre,
+prima cifră fiind nenulă. La plecare şi-a amintit că-i promisese unui copil isteţ un cadou special, care să fie
+diferit de toate celelalte. Moş Crăciun vă roagă să găsiţi un cadou care să aibă codul de bare diferit de toate celelalte.
+Ex:
+4
+123456789 987654321 112345567 200000001
+se afiseaza 412345678
+*/
+void solutia20() {
+
+	int dim = 4;
+	int v[100] = { 123456789, 987654321 ,112345567, 200000001 };
+	for (int i = 0; i < dim; i++)
+		list.addEnd(v[i]);
+
+	cout << list.generareNrDiferit(dim);
+}
 
 
 
