@@ -484,4 +484,101 @@ void solutia25() {
 	cout << list.sumdiv3(dim);
 }
 
+/*#4381
+Se dă un vector cu n numere naturale. Să se determine câte dintre perechile de elemente egal
+depărtate de capetele vectorului au aceeași cifră a zecilor.
+Ex:
+6
+145 207 56 1248 1001 249
+se afiseaza 4
+*/
+void solutia26() {
+
+	int dim = 6;
+	int v[100] = { 145, 207, 56, 1248, 1001, 249 };
+	for (int i = 0; i < dim; i++)
+		list.addEnd(v[i]);
+
+	cout << list.ctPerechiCifZeci(dim);
+
+}
+
+/*#495
+Se dă un vector x cu n elemente, numere naturale. Să se construiască un alt vector, y, care să conțină elementele prime
+din x, în ordine inversă.
+Ex:
+6
+50 5 15 29 13 40
+ se afiseaza 13 29 5
+*/
+void solutia27() {
+
+	int dim = 6;
+	int v[100] = { 50, 5, 15, 29 ,13, 40 };
+	for (int i = 0; i < dim; i++)
+		list.addEnd(v[i]);
+	List<int> y;
+
+	y.addPrime(dim, list);
+	y.afisare();
+}
+
+/*#499
+Se dă un vector cu n numere naturale. Să se determine câte dintre perechile de elemente din vector sunt
+formate din valori cu aceeași sumă a cifrelor.
+Ex:
+6
+51 842 15 28 77 132
+se afiseaza 4
+*/
+void solutia28() {
+
+	int dim = 6;
+	int v[100] = { 51, 842, 15, 28, 77, 132 };
+	for (int i = 0; i < dim; i++)
+		list.addEnd(v[i]);
+
+	cout << list.ctPerechiSumEgal(dim);
+}
+
+/*#4286
+Se dă un vector x cu n elemente, numere naturale. Să se construiască un alt vector, y, care să conțină
+elementele impare din x, în ordine inversă.
+Ex:
+6
+50 5 15 29 13 40
+se afiseaza
+13 29 15 5*/
+void solutia29() {
+
+	int dim = 6;
+	int v[100] = { 50, 5, 15, 29 ,13, 40 };
+	for (int i = 0; i < dim; i++)
+		list.addEnd(v[i]);
+
+	list.afisareInversaImpar(dim);
+
+}
+
+/*#493
+Se dă un vector x cu n elemente, numere naturale. Să se construiască un alt vector, y, cu proprietatea că y[i] este egal
+cu restul împărțirii lui x[i] la suma cifrelor lui x[i].
+Ex:
+6
+50 1815 15 289 35 40
+se afiseaza 0 0 3 4 3 0
+*/
+void solutia30() {
+
+	int dim = 6;
+	int v[100] = { 50, 1815, 15, 289 ,35, 40 };
+	for (int i = 0; i < dim; i++)
+		list.addEnd(v[i]);
+
+	List<int> y;
+
+	y.addRestulImp(dim, list);
+	y.afisare();
+
+}
 

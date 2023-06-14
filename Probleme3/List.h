@@ -282,7 +282,7 @@ public:
 		return true;
 	}
 
-	void addPrime(int dim, List list) {
+	void addPrime(int dim, List<int> list) {
 
 
 		for (int i = 0; i < dim; i++) {
@@ -296,7 +296,7 @@ public:
 
 	}
 
-	void addRestulImp(int dim, List list) {
+	void addRestulImp(int dim, List<int> list) {
 
 		for (int i = 0; i < dim; i++) {
 			int nr = list.head->getData();
@@ -688,6 +688,18 @@ public:
 		return false;
 	}
 
+	void nextI(int i, Node<int>* aux) {
+
+		int ct = 0;
+
+		while (ct < i)
+		{
+			aux = aux->getNext();
+			ct++;
+		}
+
+	}
+
 	void afisarePelindrom(int dim) {
 
 		Node<T>* aux = head;
@@ -785,7 +797,7 @@ public:
 		return numar_cautat;
 	}
 
-	int sumaPuteri(int dim, List list) {
+	int sumaPuteri(int dim, List<int> list) {
 
 		Node<T>* aux = head;
 		int s = 0;
@@ -978,7 +990,7 @@ public:
 
 		int ct = 0;
 
-		Node<T>* aux = head;
+		Node<int>* aux = head;
 
 		for (int i = 1; i <= dim; i++) {
 
@@ -996,7 +1008,7 @@ public:
 
 		int s = 0;
 
-		Node<T>* aux = head;
+		Node<int>* aux = head;
 
 		for (int i = 1; i <= dim; i++) {
 
@@ -1010,5 +1022,24 @@ public:
 		return s;
 	}
 
+	void afisareInversaImpar(int dim) {
+
+		Node<T>* aux = head;
+		for (int i = dim; i >= 1; i--) {
+			int ct = 0;
+
+			while (ct < i - 1)
+			{
+				aux = aux->getNext();
+				ct++;
+			}
+			if (aux->getData() % 2 == 1)
+				cout << aux->getData() << " ";
+			aux = head;
+		}
+
+
+
+	}
 
 };
